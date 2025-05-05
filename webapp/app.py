@@ -17,4 +17,4 @@ def click():
 
 # Запуск локально (не нужен на Render, но пусть будет)
 if __name__ == "__main__":
-    app.run(port=5000)
+    app.run(debug=True)
