@@ -1,24 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Clicker WebApp</title>
+  <meta charset="UTF-8">
+  <title>Telegram Clicker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+  <div class="container">
     <h1>👆 Telegram Clicker</h1>
+    <p>Нажатий: <span id="counter">0</span></p>
     <button onclick="sendClick()">Click Me!</button>
+  </div>
 
-    <script>
-        function sendClick() {
-            fetch("/click", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ user_id: "12345" })  // в реальности user_id придёт из Telegram WebApp
-            })
-            .then(res => res.json())
-            .then(data => {
-                alert("Клик отправлен!");
-            });
-        }
-    </script>
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
 </html>
