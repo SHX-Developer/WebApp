@@ -11,7 +11,6 @@ def index():
 @app.route("/click", methods=["POST"])
 def click():
     data = request.json
-    user_id = data.get("user_id")
     return {"status": "ok"}
 
 # Запуск локально (не нужен на Render, но пусть будет)
