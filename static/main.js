@@ -1,24 +1,23 @@
 
-const tg = window.Telegram.WebApp;
-tg.expand();
-tg.ready();
-
 let count = 0;
-const counterElement = document.getElementById("counter");
+const counter = document.getElementById("counter");
 const coin = document.getElementById("coin");
 
-coin.onclick = () => {
-    count++;
-    counterElement.textContent = count;
+if (coin) {
+    coin.onclick = () => {
+        count++;
+        counter.textContent = count;
+        if (navigator.vibrate) navigator.vibrate(50);
 
-    // Вибрация (если поддерживается)
-    if (navigator.vibrate) {
-        navigator.vibrate(100);
-    }
+        fetch("/click", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ user_id: "local_user" })
+        });
+    };
+}
 
-    fetch("/click", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ user_id: tg.initDataUnsafe?.user?.id || "unknown" })
-    });
-};
+function navigate(page) {
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.getElementById(`${page}-page`).classList.add("active");
+}

@@ -1,35 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
 
 body {
-  background: linear-gradient(145deg, #1e1e30, #2b2b45);
-  color: white;
-  font-family: 'Segoe UI', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+    background: linear-gradient(145deg, #1a1a2e, #282845);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.container {
-  text-align: center;
-  padding: 30px;
-  background-color: rgba(0,0,0,0.4);
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+
+img, button {
+    -webkit-user-drag: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
 }
 
-img#coin {
-  width: 120px;
-  margin-top: 20px;
-  cursor: pointer;
-  transition: transform 0.1s ease;
+#coin {
+    outline: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
-img#coin:active {
-  transform: scale(0.95);
+
+
+.page {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+    text-align: center;
+    color: white;
+    padding: 20px;
 }
 
-p {
-  font-size: 20px;
-  margin-top: 15px;
+.page.active {
+    display: flex;
+}
+
+#counter {
+    font-size: 80px;
+    font-weight: bold;
+}
+
+#coin {
+    width: 400px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+#coin:active {
+    transform: scale(0.95);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background: #12121a;
+    padding: 12px 0;
+    border-top: 1px solid #2a2a3a;
+}
+
+.buttons button {
+    flex: 1;
+    margin: 0 6px;
+    background: #2d2d3a;
+    color: #ffffff;
+    border: none;
+    padding: 14px 0;
+    font-size: 16px;
+    border-radius: 10px;
+    font-weight: 500;
+    box-shadow: inset 0 0 0 1px #3c3c50;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.buttons button:active {
+    background-color: #3c3c50;
+    transform: scale(0.97);
 }

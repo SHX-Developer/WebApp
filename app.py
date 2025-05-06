@@ -10,7 +10,6 @@ def index():
 # Обработка клика
 @app.route("/click", methods=["POST"])
 def click():
-    data = request.json
     return {"status": "ok"}
 
 # Запуск локально (не нужен на Render, но пусть будет)

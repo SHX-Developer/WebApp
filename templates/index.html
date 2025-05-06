@@ -1,20 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Clicker</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <title>CLICKER</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <div class="container">
-    <h1>💰 Telegram Clicker</h1>
-    <p>Вы нажали: <span id="counter">0</span> раз</p>
-    <img id="coin" src="https://cdn-icons-png.flaticon.com/512/138/138292.png" alt="Coin">
-  </div>
-  <script src="{{ url_for('static', filename='main.js') }}"></script>
+    <!-- Earn Page -->
+    <div id="home-page" class="page active">
+        <div id="counter">0</div>
+        <img src="{{ url_for('static', filename='coin.png') }}" id="coin" alt="coin">
+    </div>
+
+    <!-- Tasks Page -->
+    <div id="tasks-page" class="page">
+        <h2>📋 Tasks</h2>
+        <p>Complete tasks and earn rewards!</p>
+    </div>
+
+    <!-- Referrals Page -->
+    <div id="referrals-page" class="page">
+        <h2>👥 Referrals</h2>
+        <p>Invite your friends and get bonuses.</p>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="buttons">
+        <button onclick="navigate('referrals')">Referrals</button>
+        <button onclick="navigate('home')">Earn</button>
+        <button onclick="navigate('tasks')">Tasks</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
 </html>
-
-<HEad></HEad>
