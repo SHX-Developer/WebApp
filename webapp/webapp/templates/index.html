@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clicker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>💰 Telegram Clicker</h1>
+    <p>Вы нажали: <span id="counter">0</span> раз</p>
+    <img id="coin" src="https://cdn-icons-png.flaticon.com/512/138/138292.png" alt="Coin">
+  </div>
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
