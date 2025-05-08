@@ -6,7 +6,7 @@ const coin = document.getElementById("coin");
 counter.textContent = count;
 
 // Создаём аудио
-const clickSound = new Audio("static/audio/click.wav"); // укажи путь к звуку
+const clickSound = new Audio("static/audio/click.mp3"); // укажи путь к звуку
 
 if (coin) {
   coin.onclick = () => {
