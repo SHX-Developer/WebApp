@@ -1,40 +1,51 @@
-let count = Number(localStorage.getItem("clickCount")) || 0;
+window.addEventListener("DOMContentLoaded", () => {
+  if (Telegram?.WebApp?.expand) {
+    Telegram.WebApp.expand();
+  }
+});
+
+setTimeout(() => {
+  if (Telegram?.WebApp?.expand) {
+    Telegram.WebApp.expand();
+  }
+}, 100);
+
+
+let count = 0;
 const counter = document.getElementById("counter");
 const coin = document.getElementById("coin");
 
-counter.textContent = count;
+if (coin) {
+  coin.onclick = () => {
+    count++;
+    counter.textContent = count;
 
-function handleClick(event) {
-  event.preventDefault();
-  count++;
-  counter.textContent = count;
-  localStorage.setItem("clickCount", count); // сохраняем
-
-  if (navigator.vibrate) navigator.vibrate(50);
-
-  // Анимация монеты
-  coin.style.transform = "scale(0.92)";
-  setTimeout(() => coin.style.transform = "scale(1)", 100);
-
+    // Вибрация на телефоне
+    if (navigator.vibrate) navigator.vibrate(50);
+  };
 }
 
-if ('ontouchstart' in window) {
-  coin.addEventListener("touchstart", handleClick);
-} else {
-  coin.addEventListener("mousedown", handleClick);
-}
-
-function navigate(tab) {
-  // Переключение страниц
+// Переключение страниц
+function navigate(page) {
   document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-  document.getElementById(`${tab}-page`).classList.add("active");
+  document.getElementById(`${page}-page`).classList.add("active");
 
-  // Обновить активную кнопку
-  document.querySelectorAll(".nav-button").forEach(btn => {
-    btn.classList.remove("active");
-    if (btn.dataset.tab === tab) {
-      btn.classList.add("active");
-    }
-  });
+  // Переключение активной кнопки
+  document.querySelectorAll(".nav-button").forEach(btn => btn.classList.remove("active"));
+  document.querySelector(`.nav-button[data-tab="${page}"]`)?.classList.add("active");
 }
 
+// 🛠 Исправление бага на iOS WebView (перерисовать меню)
+function refreshNavBar() {
+  const nav = document.querySelector(".nav-bar");
+  if (nav) {
+    nav.style.display = "none";
+    requestAnimationFrame(() => {
+      nav.style.display = "flex";
+    });
+  }
+}
+
+// Обновить после загрузки и когда Telegram разворачивает WebApp
+window.addEventListener("load", refreshNavBar);
+window.addEventListener("focus", refreshNavBar);
