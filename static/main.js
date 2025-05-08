@@ -1,23 +1,40 @@
-
-let count = 0;
+let count = Number(localStorage.getItem("clickCount")) || 0;
 const counter = document.getElementById("counter");
 const coin = document.getElementById("coin");
 
-if (coin) {
-    coin.onclick = () => {
-        count++;
-        counter.textContent = count;
-        if (navigator.vibrate) navigator.vibrate(50);
+counter.textContent = count;
 
-        fetch("/click", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ user_id: "local_user" })
-        });
-    };
+function handleClick(event) {
+  event.preventDefault();
+  count++;
+  counter.textContent = count;
+  localStorage.setItem("clickCount", count); // сохраняем
+
+  if (navigator.vibrate) navigator.vibrate(50);
+
+  // Анимация монеты
+  coin.style.transform = "scale(0.92)";
+  setTimeout(() => coin.style.transform = "scale(1)", 100);
+
 }
 
-function navigate(page) {
-    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-    document.getElementById(`${page}-page`).classList.add("active");
+if ('ontouchstart' in window) {
+  coin.addEventListener("touchstart", handleClick);
+} else {
+  coin.addEventListener("mousedown", handleClick);
 }
+
+function navigate(tab) {
+  // Переключение страниц
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  document.getElementById(`${tab}-page`).classList.add("active");
+
+  // Обновить активную кнопку
+  document.querySelectorAll(".nav-button").forEach(btn => {
+    btn.classList.remove("active");
+    if (btn.dataset.tab === tab) {
+      btn.classList.add("active");
+    }
+  });
+}
+

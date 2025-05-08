@@ -1,37 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>CLICKER</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Uzb Clicker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <!-- Earn Page -->
-    <div id="home-page" class="page active">
-        <div id="counter">0</div>
-        <img src="{{ url_for('static', filename='coin.png') }}" id="coin" alt="coin">
-    </div>
+  <div class="top-bar">UZB CLICKER</div>
 
-    <!-- Tasks Page -->
-    <div id="tasks-page" class="page">
-        <h2>📋 Tasks</h2>
-        <p>Complete tasks and earn rewards!</p>
-    </div>
+  <!-- Главная -->
+  <div class="page active" id="home-page">
+    <div id="counter">0</div>
+    <img src="{{ url_for('static', filename='coin.png') }}" id="coin" alt="coin">
+  </div>
 
-    <!-- Referrals Page -->
-    <div id="referrals-page" class="page">
-        <h2>👥 Referrals</h2>
-        <p>Invite your friends and get bonuses.</p>
-    </div>
+  <!-- Задания -->
+  <div class="page" id="tasks-page">
+    <h2>Задания</h2>
+    <p>Выполняйте задачи и зарабатывайте.</p>
+  </div>
 
-    <!-- Navigation Buttons -->
-    <div class="buttons">
-        <button onclick="navigate('referrals')">Referrals</button>
-        <button onclick="navigate('home')">Earn</button>
-        <button onclick="navigate('tasks')">Tasks</button>
-    </div>
+  <!-- Рефералы -->
+  <div class="page" id="referrals-page">
+    <h2>Рефералы</h2>
+    <p>Приглашайте друзей и получайте бонусы.</p>
+  </div>
 
-    <script src="{{ url_for('static', filename='main.js') }}"></script>
+  <!-- Таблица -->
+  <div class="page" id="rank-page">
+    <h2>Таблица лидеров</h2>
+    <p>Смотрите, кто на первом месте!</p>
+  </div>
+
+  <!-- Профиль -->
+  <div class="page" id="profile-page">
+    <h2>Профиль</h2>
+    <p>Информация о вашем аккаунте.</p>
+  </div>
+
+  <!-- Навигация -->
+  <div class="nav-bar">
+    <button class="nav-button" onclick="navigate('referrals')" data-tab="referrals">
+      <img src="{{ url_for('static', filename='source/icons/Referrals.svg') }}" class="icon" alt="Referrals">
+      <span>Referrals</span>
+    </button>
+    <button class="nav-button" onclick="navigate('tasks')" data-tab="tasks">
+      <img src="{{ url_for('static', filename='source/icons/Tasks.svg') }}" class="icon" alt="Tasks">
+      <span>Tasks</span>
+    </button>
+    <button class="nav-button active" onclick="navigate('home')" data-tab="home">
+      <img src="{{ url_for('static', filename='source/icons/Earn.svg') }}" class="icon" alt="Earn">
+      <span>Earn</span>
+    </button>
+    <button class="nav-button" onclick="navigate('rank')" data-tab="rank">
+      <img src="{{ url_for('static', filename='source/icons/Leaderboard.svg') }}" class="icon" alt="Rank">
+      <span>Leaders</span>
+    </button>
+    <button class="nav-button" onclick="navigate('profile')" data-tab="profile">
+      <img src="{{ url_for('static', filename='source/icons/Profile.svg') }}" class="icon" alt="Profile">
+      <span>Profile</span>
+    </button>
+  </div>
+  
+  
+
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
 </html>
