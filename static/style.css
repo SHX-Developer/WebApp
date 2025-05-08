@@ -36,13 +36,13 @@ body {
   font-size: 70px;
   font-weight: bold;
   color: #ffffff;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 #coin {
   width: 450px;
   transition: transform 0.2s ease;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 
