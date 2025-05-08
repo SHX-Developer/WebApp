@@ -1,14 +1,16 @@
 window.addEventListener("DOMContentLoaded", () => {
-  if (Telegram?.WebApp?.expand) {
-    Telegram.WebApp.expand();
-  }
+  if (Telegram?.WebApp?.expand) Telegram.WebApp.expand();
+
+  // Встряхиваем Telegram WebView на iOS
+  window.scrollTo(0, 1);
+  window.scrollTo(0, 0);
+
+  // Анимация для пересчёта layout
+  setTimeout(() => {
+    document.body.style.transform = "scale(1)";
+  }, 150);
 });
 
-setTimeout(() => {
-  if (Telegram?.WebApp?.expand) {
-    Telegram.WebApp.expand();
-  }
-}, 100);
 
 
 let count = 0;
