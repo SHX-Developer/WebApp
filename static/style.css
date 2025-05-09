@@ -31,13 +31,13 @@ body {
 
 #coin {
   width: 450px;
-  transition: transform 0.2s ease;
+  transition: transform 0.1s ease;
   margin-top: 20px;
 }
 
 
 #coin:active {
-  transform: scale(0.90);
+  transform: scale(0.97);
 }
 
 .nav-bar {
