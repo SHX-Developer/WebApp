@@ -26,11 +26,11 @@ body {
   font-size: 70px;
   font-weight: bold;
   color: #ffffff;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 #coin {
-  width: 450px;
+  width: 400px;
   transition: transform 0.1s ease;
   margin-top: 20px;
 }

@@ -10,9 +10,9 @@ def is_mobile():
 @app.route('/')
 def index():
     if is_mobile():
-        return render_template('index.html')       # откроется WebApp
+        return render_template('index.html')
     else:
-        return render_template('desktop_block.html')  # блокировка для ПК
+        return render_template('desktop_block.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
