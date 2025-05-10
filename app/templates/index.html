@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>Uzb Clicker</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="/static/style.css">
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <script>
     window.addEventListener("DOMContentLoaded", () => {
@@ -19,7 +19,7 @@
   <!-- Главная -->
   <div class="page active" id="home-page">
     <div id="counter">0</div>
-    <img src="{{ url_for('static', filename='image/coin.png') }}" id="coin" alt="coin">
+    <img src="/static/image/coin.png" id="coin" alt="coin">
   </div>
 
   <!-- Задания -->
@@ -49,26 +49,26 @@
   <!-- Навигация -->
   <div class="nav-bar">
     <button class="nav-button" onclick="navigate('referrals')" data-tab="referrals">
-      <img src="{{ url_for('static', filename='icons/Referrals.svg') }}" class="icon" alt="Referrals">
+      <img src="/static/icons/Referrals.svg" class="icon" alt="Referrals">
       <span>Referrals</span>
     </button>
     <button class="nav-button" onclick="navigate('tasks')" data-tab="tasks">
-      <img src="{{ url_for('static', filename='icons/Tasks.svg') }}" class="icon" alt="Tasks">
+      <img src="/static/icons/Tasks.svg" class="icon" alt="Tasks">
       <span>Tasks</span>
     </button>
     <button class="nav-button active" onclick="navigate('home')" data-tab="home">
-      <img src="{{ url_for('static', filename='icons/Earn.svg') }}" class="icon" alt="Earn">
+      <img src="/static/icons/Earn.svg" class="icon" alt="Earn">
       <span>Earn</span>
     </button>
     <button class="nav-button" onclick="navigate('rank')" data-tab="rank">
-      <img src="{{ url_for('static', filename='icons/Leaderboard.svg') }}" class="icon" alt="Rank">
+      <img src="/static/icons/Leaderboard.svg" class="icon" alt="Rank">
       <span>Leaders</span>
     </button>
     <button class="nav-button" onclick="navigate('profile')" data-tab="profile">
-      <img src="{{ url_for('static', filename='icons/Profile.svg') }}" class="icon" alt="Profile">
+      <img src="/static/icons/Profile.svg" class="icon" alt="Profile">
       <span>Profile</span>
     </button>
   </div>
-  <script src="{{ url_for('static', filename='main.js') }}"></script>
+  <script src="/static/main.js"></script>
 </body>
 </html>
