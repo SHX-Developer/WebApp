@@ -1,19 +1,17 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models import Base
+import os
 
-# SQLite URL
-DATABASE_URL = "sqlite:///./app.db"
+# Получаем строку подключения из переменной окружения
+DATABASE_URL = os.getenv("DATABASE_URL")
 
-# Создание движка
-engine = create_engine(
-    DATABASE_URL, connect_args={"check_same_thread": False}
-)
+# Создаём движок подключения
+engine = create_engine(DATABASE_URL)
 
-# Создание сессии
+# Создаём сессию
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-# Инициализация базы (создание таблиц)
+# Создаём таблицы (если не существуют)
 def init_db():
-    print("📦 Initializing database...")
     Base.metadata.create_all(bind=engine)
