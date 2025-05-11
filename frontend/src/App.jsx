@@ -5,8 +5,19 @@ import Earn from './pages/Earn'
 import Referrals from './pages/Referrals'
 import Profile from './pages/Profile'
 import Navbar from './components/Navbar'
+import { useUser } from './context/UserContext'
 
 export default function App() {
+  const { isLoading } = useUser()
+
+  if (isLoading) {
+    return (
+      <div className="page" style={{ color: 'white', textAlign: 'center', paddingTop: '40vh' }}>
+        Загрузка...
+      </div>
+    )
+  }
+
   return (
     <Router>
       <Navbar />
