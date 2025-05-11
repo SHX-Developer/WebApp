@@ -11,6 +11,7 @@ export default function App() {
   const { isLoading, isTelegram } = useUser()
   if (isLoading) return <div className="page">Загрузка...</div>
 
+  console.log("📦 App loaded:", { isLoading, isTelegram })
   return (
     <Router>
       <Navbar />

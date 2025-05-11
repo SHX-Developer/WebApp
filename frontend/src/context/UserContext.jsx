@@ -24,7 +24,12 @@ export const UserProvider = ({ children }) => {
 
   useEffect(() => {
     console.log("🟢 TRY register:", telegramId)
-    if (!telegramId) return
+  
+    if (!telegramId) {
+      console.warn("⛔ No telegramId, skipping registration.")
+      setIsLoading(false)
+      return
+    }
   
     fetch(`/register?telegram_id=${telegramId}&username=${username}`, {
       method: 'POST',
@@ -40,6 +45,7 @@ export const UserProvider = ({ children }) => {
         setIsLoading(false)
       })
   }, [telegramId])
+  
   
 
   const updateBalance = async () => {
