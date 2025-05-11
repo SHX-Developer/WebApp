@@ -3,7 +3,6 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from database import init_db
 from app.routes.clicker import router as clicker_router
-import os
 
 app = FastAPI()
 
@@ -13,9 +12,6 @@ def startup_event():
 
 # подключаем React сборку
 app.mount("/", StaticFiles(directory="frontend/dist", html=True), name="frontend")
-
-# если нужно оставить /static для других файлов
-app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 # маршруты API
 app.include_router(clicker_router)
