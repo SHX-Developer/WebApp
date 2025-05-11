@@ -23,24 +23,24 @@ export const UserProvider = ({ children }) => {
   }, [])
 
   useEffect(() => {
+    console.log("🟢 TRY register:", telegramId)
     if (!telegramId) return
-
-    setIsLoading(true)
-
+  
     fetch(`/register?telegram_id=${telegramId}&username=${username}`, {
-      method: 'POST'
+      method: 'POST',
     })
-      .then(() => fetch(`/balance/${telegramId}`))
       .then(res => res.json())
       .then(data => {
+        console.log("✅ Registered:", data)
         setBalance(data.balance ?? 0)
         setIsLoading(false)
       })
       .catch(err => {
-        console.error('UserContext error:', err)
+        console.error("⛔ Registration error:", err)
         setIsLoading(false)
       })
   }, [telegramId])
+  
 
   const updateBalance = async () => {
     try {
