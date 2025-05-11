@@ -52,3 +52,5 @@ function navigate(page) {
   document.querySelectorAll(".nav-button").forEach(btn => btn.classList.remove("active"));
   document.querySelector(`.nav-button[data-tab="${page}"]`)?.classList.add("active");
 }
+
+navigate('home');

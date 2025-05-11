@@ -4,7 +4,8 @@ from models import Base
 import os
 
 # Получаем строку подключения из переменной окружения
-DATABASE_URL = os.getenv("DATABASE_URL")
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./app.db")
+
 
 # Создаём движок подключения
 engine = create_engine(DATABASE_URL)

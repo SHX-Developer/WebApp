@@ -10,6 +10,163 @@ body {
   overflow: hidden;
 }
 
+
+
+
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.welcome-text {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.username {
+  font-weight: 600;
+  color: white;
+}
+
+.bell-icon img {
+  width: 35px;
+  height: 35px;
+  color: white;
+}
+
+.balance-card {
+  background: #262c42;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.balance-label {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.balance-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.coins-icon {
+  width: 36px;
+}
+
+.section-title {
+  text-align: center;
+  margin-top: 12px;
+  color: white;
+  font-size: 16px;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 12px;
+}
+
+.grid-button {
+  background: #1f2336;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  border: none;
+}
+
+.grid-button img {
+  width: 32px;
+  margin-bottom: 5px;
+}
+
+.top-players {
+  margin-top: 20px;
+  padding: 0 12px;
+  color: white;
+}
+
+.top-players ul {
+  list-style: none;
+  padding: 0;
+}
+
+.top-players li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 14px;
+  border-bottom: 1px solid #333;
+}
+
+.paid {
+  color: #a48bff;
+  font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .page {
   display: none;
   flex-direction: column;
