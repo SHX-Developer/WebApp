@@ -1,0 +1,48 @@
+.nav-bar {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  background-color: #2e2547; /* навигация */
+  border-radius: 16px;
+  padding: 10px 20px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+
+.nav-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #cfcfcf;
+  text-decoration: none;
+  font-size: 11px;
+  padding: 6px 10px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.nav-button img {
+  width: 22px;
+  height: 22px;
+  opacity: 0.5;
+  filter: brightness(0) invert(1);
+  margin-bottom: 4px;
+  transition: all 0.2s ease;
+}
+
+.nav-button.active {
+  color: #ff7f00;
+  font-weight: 600;
+  background: rgba(255, 128, 0, 0.12); /* оранжевое свечение */
+  box-shadow: 0 0 10px rgba(255, 128, 0, 0.4);
+}
+
+.nav-button.active img {
+  filter: brightness(0) saturate(100%) invert(55%) sepia(90%) saturate(2000%) hue-rotate(-10deg);
+  opacity: 1;
+}

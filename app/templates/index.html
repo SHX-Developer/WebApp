@@ -4,120 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>LIFT PAY</title>
+  
+  <!-- Шрифты и Telegram SDK -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/style.css">
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  <!-- Можно оставить общий стиль (если он будет нужен всем страницам) -->
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <!-- Единственный div, куда React вставит всё остальное -->
+  <div id="root"></div>
+
+  <!-- Telegram SDK init -->
   <script>
     window.addEventListener("DOMContentLoaded", () => {
       if (Telegram?.WebApp?.ready) Telegram.WebApp.ready();
       if (Telegram?.WebApp?.expand) Telegram.WebApp.expand();
     });
   </script>
-</head>
-<body>
-
-  <!-- Home -->
-  <div class="page active" id="home-page">
-    <div class="home-header">
-      <div class="user-info">
-        <img src="/static/image/home/avatar.png" class="avatar" alt="User Avatar">
-        <div>
-          <div class="welcome-text">Welcome Back,</div>
-          <div class="username" id="username">@username</div>
-        </div>
-      </div>
-      <div class="bell-icon" style="margin-left: auto;">
-        <img src="/static/icons/home/bell.svg" alt="Notifications">
-      </div>
-    </div>
-
-    <div class="balance-card">
-      <div class="balance-texts">
-        <div class="balance-label">Hisobingiz</div>
-        <div class="balance-value" id="home-balance">0</div>
-      </div>
-      <img src="/static/image/earn/coin.png" class="coins-icon" alt="Coins">
-    </div>
-
-    <h3 class="section-title">Vazifalarni bajaring, pul ishlang</h3>
-
-    <div class="home-grid">
-      <button class="grid-button" onclick="navigate('referrals')">
-        <img src="/static/icons/navigations/Referrals.svg" alt="Referal">
-        <span>Referal</span>
-      </button>
-      <button class="grid-button" onclick="navigate('tasks')">
-        <img src="/static/icons/navigations/Tasks.svg" alt="Vazifa">
-        <span>Vazifa</span>
-      </button>
-      <button class="grid-button">
-        <img src="/static/icons/home/subscribe.svg" alt="Obuna">
-        <span>Obuna</span>
-      </button>
-      <button class="grid-button">
-        <img src="/static/icons/home/youtube.svg" alt="YouTube">
-        <span>YouTube</span>
-      </button>
-    </div>
-
-    <div class="top-players">
-      <h3>Top o'yinchilar</h3>
-      <table class="players-table">
-        <tr><td>SHX</td><td>350,000</td><td class="paid">Pul o'tkazildi</td></tr>
-        <tr><td>Lil</td><td>150,000</td><td class="paid">Pul o'tkazildi</td></tr>
-        <tr><td>Don</td><td>100,000</td><td class="paid">Pul o'tkazildi</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <!-- Tasks -->
-  <div class="page" id="tasks-page">
-    <h2>Tasks</h2>
-    <p>Complete tasks and earn rewards.</p>
-  </div>
-
-  <!-- Earn -->
-  <div class="page" id="earn-page">
-    <div id="counter">0</div>
-    <img src="/static/image/earn/coin.png" id="coin" alt="coin">
-  </div>
-
-  <!-- Referrals -->
-  <div class="page" id="referrals-page">
-    <h2>Referrals</h2>
-    <p>Invite friends and get bonuses.</p>
-  </div>
-
-  <!-- Profile -->
-  <div class="page" id="profile-page">
-    <h2>Profile</h2>
-    <p>Your account info and settings.</p>
-  </div>
-
-  <!-- Navigation -->
-  <div class="nav-bar">
-    <button class="nav-button active" onclick="navigate('home')" data-tab="home">
-      <img src="/static/icons/navigations/Home.svg" class="icon" alt="Home">
-      <span>Home</span>
-    </button>
-    <button class="nav-button" onclick="navigate('tasks')" data-tab="tasks">
-      <img src="/static/icons/navigations/Tasks.svg" class="icon" alt="Tasks">
-      <span>Tasks</span>
-    </button>
-    <button class="nav-button" onclick="navigate('earn')" data-tab="earn">
-      <img src="/static/icons/navigations/Earn.svg" class="icon" alt="Earn">
-      <span>Earn</span>
-    </button>
-    <button class="nav-button" onclick="navigate('referrals')" data-tab="referrals">
-      <img src="/static/icons/navigations/Referrals.svg" class="icon" alt="Referrals">
-      <span>Referrals</span>
-    </button>
-    <button class="nav-button" onclick="navigate('profile')" data-tab="profile">
-      <img src="/static/icons/navigations/Profile.svg" class="icon" alt="Profile">
-      <span>Profile</span>
-    </button>
-  </div>
-
-  <script src="/static/main.js"></script>
 </body>
 </html>
