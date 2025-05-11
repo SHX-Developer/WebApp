@@ -5,10 +5,12 @@ export default function Earn() {
   const { balance, telegramId, updateBalance } = useUser()
 
   const handleClick = async () => {
-    if (navigator.vibrate) navigator.vibrate(50)
+    console.log("CLICKED!", telegramId)
+    if (!telegramId) return
     await fetch(`/click?telegram_id=${telegramId}`, { method: 'POST' })
     await updateBalance()
   }
+  
 
   return (
     <div className="page earn-page">

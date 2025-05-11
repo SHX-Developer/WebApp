@@ -8,15 +8,8 @@ import Navbar from './components/Navbar'
 import { useUser } from './context/UserContext'
 
 export default function App() {
-  const { isLoading } = useUser()
-
-  if (isLoading) {
-    return (
-      <div className="page" style={{ color: 'white', textAlign: 'center', paddingTop: '40vh' }}>
-        Загрузка...
-      </div>
-    )
-  }
+  const { isLoading, isTelegram } = useUser()
+  if (isLoading) return <div className="page">Загрузка...</div>
 
   return (
     <Router>
