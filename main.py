@@ -10,13 +10,13 @@ app = FastAPI()
 def startup_event():
     init_db()
 
-# подключаем React сборку
-app.mount("/", StaticFiles(directory="frontend/dist", html=True), name="frontend")
-
-# маршруты API
+# ✅ СНАЧАЛА подключаем API
 app.include_router(clicker_router)
 
-# если хотим вручную отдавать index.html
+# ✅ ПОТОМ монтируем React SPA
+app.mount("/", StaticFiles(directory="frontend/dist", html=True), name="frontend")
+
+# необязательно — но можно оставить для ручного доступа
 @app.get("/")
 async def serve_react():
     return FileResponse("frontend/dist/index.html")
